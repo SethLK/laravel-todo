@@ -1,0 +1,25 @@
+/* Add this to your existing CSS or create a new stylesheet */
+
+.add_todo {
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.tasks ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tasks li {
+    margin-bottom: 5px;
+}
