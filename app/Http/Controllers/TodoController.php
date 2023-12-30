@@ -24,4 +24,33 @@ class TodoController extends Controller
 
         return redirect()->route('index')->with('success', 'Task created successfully');
     }
+
+    public function edit($id){
+        $task = tasks::find($id);
+        return view("edit", compact("task"));
+    }
+
+    public function update($id, Request $request){
+        $this->validate($request, [
+            "name" => "required",
+        ]);
+
+        $task = tasks::find($id);
+        $task->name = $request->input("name");
+        $task->save();
+        return redirect()->route('index')->with('success', 'Task updated successfully');
+    }
+
+    public function delete($id){
+        $task = tasks::find($id);
+        $task->delete();
+        return redirect()->route('index')->with('success', 'Task deleted successfully');
+    }
+
+    public function complete($id){
+        $task = tasks::find($id);
+        $task->completed = 1;
+        $task->save();
+        return redirect()->route('index')->with('success', 'Task done successfully');
+    }
 }

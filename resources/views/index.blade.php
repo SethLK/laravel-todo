@@ -5,6 +5,7 @@
 <div class="add_todo">
     <form action="{{ route("store") }}" method="post">
         @csrf
+        @method("POST")
         <label for="Tasks">Tasks
             @error('name')
                 <input type="text" name="name" placeholder="Task Name" value="{{ old("name") }}">
@@ -24,7 +25,32 @@
 <div class="tasks">
     <ul>
         @foreach ($tasks as $task)
-            <li>{{ $task->name }}</li>
+            <li>
+                @if ($task->completed == 0)
+                    <a href="/edit/{{ $task->id }}">{{ $task->name }}</a>
+                    <form action="{{ route('complete', ['id' => $task->id]) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method("PUT")
+                        <button type="submit">Done</button>
+                    </form>
+                    <form action="{{ route("delete", ['id' => $task->id]) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit">Delete</button>
+                    </form>
+                @else
+                    <s>{{ $task->name }}</s>
+                    <form action="{{ route("delete", ['id' => $task->id]) }}" method="POST" style="display: inline;">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit">Delete</button>
+                    </form>           
+                @endif
+                
+                
+                <!-- Use a button or link to trigger the form submission -->
+                
+            </li>
         @endforeach
     </ul>
 </div>

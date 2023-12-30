@@ -20,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [TodoController::class, 'index'])->name("index");
 Route::post("/add", [TodoController::class, 'store'])->name("store");
+Route::get("/edit/{id}", [TodoController::class, 'edit'])->name("edit");
+Route::put("/update/{id}", [TodoController::class, 'update'])->name("update");
+Route::delete("/delete/{id}", [TodoController::class, 'delete'])->name("delete");
+Route::put("/complete/{id}", [TodoController::class, 'complete'])->name("complete");
