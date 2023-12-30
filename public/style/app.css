@@ -1,25 +1,22 @@
-/* Add this to your existing CSS or create a new stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-.add_todo {
-    margin-bottom: 20px;
+*{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
 }
 
-.error {
-    color: red;
-    font-size: 12px;
+.center{
+    margin-top: 50px;
+    display: flex;
 }
 
-.success-message {
-    color: green;
-    font-size: 14px;
-    margin-bottom: 10px;
+.container{
+    margin: auto;
+    padding: 30px 60px;
+    border: 2px black solid;
 }
 
-.tasks ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.tasks li {
-    margin-bottom: 5px;
+.success-message{
+    margin: 20px 20px;
+    color: rgb(100, 182, 19);
 }
